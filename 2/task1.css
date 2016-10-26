@@ -1,0 +1,51 @@
+header {
+    background-color: #424bf4;
+}
+header img {
+    float: left;
+    width: 50px;
+    height: 56px;
+}
+
+header h1 {
+    position: relative;
+    top: 10px;
+    left: 5px;
+}
+
+.nav {
+    background-color: #42d7f4;
+}
+
+.nav2 {
+    background-color: yellow;
+}
+
+.most-read {
+    background-color: red;
+}
+.nav li {
+  display: inline-block;
+}
+
+.recommended {
+    background-color: pink;
+}
+
+.last-entries {
+    background-color: green;
+}
+
+footer {
+    background-color: gray
+}
+ul.breadcrumb {
+    background-color: #eee;
+}
+ul.breadcrumb li {display: inline;}
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+}
+ul.breadcrumb li a {color: black;}

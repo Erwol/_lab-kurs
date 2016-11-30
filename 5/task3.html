@@ -1,0 +1,95 @@
+<!--
+
+http://www.dofactory.com/javascript/design-patterns
+Singleton: http://www.dofactory.com/javascript/singleton-design-pattern
+    The Singleton object is implemented as an immediate anonymous function. The function executes immediately by wrapping it in brackets followed by two additional brackets. It is called anonymous because it doesn't have a name.
+Iterator: http://www.dofactory.com/javascript/iterator-design-pattern
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Task 5.3</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+
+            var Country = (function(){
+                var nationality;
+
+                function newCitizien() {
+                    var nationality = new Object("Polish citizien");
+                    return nationality;
+                }
+
+                return {
+                    getNationality : function() {
+                        if(!nationality)
+                            nationality = newCitizien();
+                        return nationality;
+                    }
+                };
+            })();
+
+            // App to register guys from the same country...
+            var citizien1 = {name:"Paco", nationality:"Null"}
+            var citizien2 = {name:"Antom", nationality:"Null"}
+
+            citizien1.nationality = Country.getNationality();
+            citizien2.nationality = Country.getNationality();
+
+            if(citizien2 != citizien1)
+                alert("Obviously " + citizien2.name + " is not " + citizien1.name);
+            if(citizien2.nationality === citizien1.nationality)
+                alert("But both have the same nationality");
+            //var new = Singleton.newUnique
+
+
+
+            // Iterator example ...
+            var Iterator = function(items) {
+                this.index = 0;
+                this.max = items.length;
+                this.items = items;
+            }
+
+            Iterator.prototype = {
+                first: function() {
+                    this.index = 0;
+                    alert(this.items[this.index]);
+                },
+                next: function() {
+                    this.index++;
+
+                    if(this.index >= this.max)
+                        this.index = 0;
+
+                    alert(this.items[this.index]);
+                },
+                previous: function() {
+
+                    this.index--;
+
+                    if(this.index < 0)
+                        this.index = this.max - 1;
+                    alert(this.items[this.index]);
+                }
+            }
+            var people = ["José", "Armando", "Maciej", "Ewelina", "Tina"];
+            var i = new Iterator(people);
+
+            i.first();
+            function nextPerson(){
+                i.next();
+            }
+
+            function previousPerson(){
+                i.previous();
+            }
+        </script>
+
+        <button type="button" name="button" onclick="nextPerson()">Next person</button>
+        <button type="button" name="button" onclick="previousPerson()">Previous person</button>
+    </body>
+</html>

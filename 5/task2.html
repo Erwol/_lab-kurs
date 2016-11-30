@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Task 5.2</title>
+    </head>
+    <body>
+
+        <p id="sandBox">
+            Testing...<br>
+        </p>
+
+        <script type="text/javascript">
+            class Vehicle {
+                constructor(numberWheels, numberPlate, color, country, owner, fuelConsumption, currentPosition) {
+                    this._numberWheels = numberWheels;
+                    this._numberPlate = numberPlate;
+                    this._color = color;
+                    this._country = country;
+                    this._owner = owner;
+                    this._tankStatus = 0;
+                    this._fuelConsumption = fuelConsumption;
+                    this._currentPosition = currentPosition;
+                }
+
+                move(newPosition){
+                    _currentPosition = newPosition;
+                }
+
+                loadFuel(newFuel){
+                    _tankStatus += newFuel;
+                }
+            }
+
+            class Car extends Vehicle {
+                constructor(numberWheels, numberPlate, color, country, owner, fuelConsumption, currentPosition, numberSeats) {
+                    super(numberWheels, numberPlate, color, country, owner, fuelConsumption, currentPosition);
+                    this._numberSeats = numberSeats;
+                }
+            }
+
+            class Truck extends Vehicle {
+                constructor(numberWheels, numberPlate, color, country, owner, fuelConsumption, currentPosition, capacity) {
+                    super(numberWheels, numberPlate, color, country, owner, fuelConsumption, currentPosition);
+                    this._capacity = capacity;
+                }
+            }
+            var currentPosition = {x : 32.5, y : 67.5}
+            mine = new Car(4, 5567, "Red", "Poland", "Anthom", 7.67, currentPosition, 8);
+        </script>
+
+    </body>
+</html>
